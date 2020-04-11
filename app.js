@@ -11,6 +11,8 @@ var indexRouter = require('./routes/index');
 var tournament = require('./routes/tournament');
 var login = require('./routes/login');
 var signup = require('./routes/signup');
+var admin_login = require('./routes/admin-login');
+var admin_dashboard = require('./routes/admin-dashboard');
 
 
 var app = express();
@@ -38,6 +40,8 @@ app.use('/', indexRouter);
 app.use('/tournament', tournament);
 app.use('/login', login);
 app.use('/signup', signup);
+app.use('/admin-login', admin_login);
+app.use('/admin-dashboard', admin_dashboard);
 
 // Access Control
 app.use(function(req, res, next) {
