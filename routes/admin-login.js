@@ -27,4 +27,11 @@ router.post("/adminlogin", (req, res) => {
     });
   });
 
+    //admin logout function
+
+    router.get("/admin-logout", (req, res) => {
+      req.session.adminid = null;
+      res.redirect("/admin-login");
+    });
+
 module.exports = router;
