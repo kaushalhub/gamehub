@@ -35,7 +35,7 @@ router.post("/insert", (req, res) => {
       }
     });
   });
-
+   
   // logout function
 
   router.get("/logout", (req, res) => {

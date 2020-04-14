@@ -24,7 +24,7 @@
         <nav class="black">
           <div class="container">
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo">GAME<span class="hub">HUB</span></a>
+                <a href="/" class="brand-logo">Game<span class="hub">Hub</span></a>
                 <a href="#" data-target="mobile-nav" class="sidenav-trigger">
                   <i class="material-icons">menu</i>
                   <ul class="right hide-on-med-and-down">
@@ -33,7 +33,7 @@
 						
 						<li><a href="/account">My Account</a></li>
 						<li><a href="/signup/logout">Logout</a></li>
-						<a class="waves-effect waves-light btn dropdown-trigger btn red darken-4">Hi <%= result[0].name %></a>
+						<a class="waves-effect waves-light btn dropdown-trigger btn red darken-4">Hi <%= result[0][0].name %></a>
 						<!-- dropdown -->
 						
 						<% } else { %>
@@ -68,44 +68,27 @@
 	</div>
 	
 	<% if(login == true)  { %>
-
+			<!-- card tournament area -->
 		<div class="container">
 			<h5>Upcomming Tournament</h5>
 			<div class="row">
+				<% for(i=0;i<result[1].length;i++){ %>
 				<div class="col s12 m6">
 				  <div class="card">
 					<div class="card-image" >
 					  <img src="image/pubg.jpg">
-					  <span class="card-title">SOLO SUPER KILL: PUBG MOBILE</span>
+					  <span class="card-title"><%= result[1][i]. tournamentname %></span>
 					  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
 					</div>
 					<div class="card-content" style="height: 24vh;">
-						<i class="material-icons">calendar_today</i><p class="detail"> 8 April 2020 10:00 AM</p><br>
-						<i class="material-icons">map</i><P class="detail">Erangle</P>
-						<i class="material-icons price">emoji_events</i><p class="detail-right">50 Per Kill</p><br><br><br>
-						<i class="material-icons price">group</i><p class="detail-right">50 Per Kill</p>
+						<i class="material-icons">calendar_today</i><p class="detail"><%= result[1][i]. startdate %></p><br>
+						<i class="material-icons">map</i><P class="detail"><%= result[1][i]. map %></P>
+						<i class="material-icons price">emoji_events</i><p class="detail-right"><%= result[1][i]. poolprice %></p><br><br><br>
+						<i class="material-icons price">group</i><p class="detail-right"><%= result[1][i]. type %></p>
 					</div>
 				  </div>
 				</div>
-
-
-				<div class="col s12 m6">
-					<div class="card">
-					  <div class="card-image" >
-						<img src="image/pubg.jpg">
-						<span class="card-title">SOLO SUPER KILL: PUBG MOBILE</span>
-						<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-					  </div>
-					  <div class="card-content" style="height: 24vh;">
-						  <i class="material-icons">calendar_today</i><p class="detail"> 8 April 2020 10:00 AM</p><br>
-						  <i class="material-icons">map</i><P class="detail">Erangle</P>
-						  <i class="material-icons price">emoji_events</i><p class="detail-right">50 Per Kill</p><br><br><br>
-						  <i class="material-icons price">group</i><p class="detail-right">50 Per Kill</p>
-					  </div>
-					</div>
-				  </div>
-
-
+				<% } %>	
 		</div>
 		<% }  else { %>
 
