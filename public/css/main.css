@@ -116,3 +116,7 @@ a{
     left: -2%;
     color: black;
   }
+
+  .list {
+    display: grid;
+  }

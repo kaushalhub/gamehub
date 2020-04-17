@@ -14,6 +14,7 @@ var signup = require('./routes/signup');
 var admin_login = require('./routes/admin-login');
 var admin_dashboard = require('./routes/admin-dashboard');
 var add_tournament = require('./routes/add-tournament');
+var tournament_detail = require('./routes/tournament-detail');
 
 
 var app = express();
@@ -44,6 +45,7 @@ app.use('/signup', signup);
 app.use('/admin-login', admin_login);
 app.use('/admin-dashboard', admin_dashboard);
 app.use('/add-tournament', add_tournament);
+app.use('/tournament-detail', tournament_detail)
 
 
 // Access Control

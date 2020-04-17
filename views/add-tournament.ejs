@@ -46,7 +46,37 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Add Tournament</h1>
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus fa-sm text-white-50"></i> Add Tournament</a>
+                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal" style="margin-left: 59%;"><i class="fas fa-plus fa-sm text-white-50"></i> Add Tournament</a>
+                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal1"><i class="fas fa-plus fa-sm text-white-50"></i> Add Game Category</a>
+               <!-- add game caterory -->
+
+               <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Add Game Category</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="/add-tournament/categoryinsert" method="post">
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Catergory Name</label>
+                          <input type="text" name="categoryname" class="form-control" id="recipient-name">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      
+                      <input type="submit" class="btn btn-primary">
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>  
+               
+               
+                <!-- add game tournament -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -57,7 +87,11 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form action="/add-tournament/insert" method="post" enctype="multipart/form-data">
+                          <form action="/add-tournament/insert" method="post">
+                            <div class="form-group">
+                              <label for="recipient-name" class="col-form-label">Choose Game Category</label>
+                              <select area-required="true" name="categoryname" id="categoryname" class="form-control"></select>
+                            </div>
                             <div class="form-group">
                               <label for="recipient-name" class="col-form-label">Tournament Name</label>
                               <input type="text" name="tournamentname" class="form-control" id="recipient-name">
@@ -173,14 +207,14 @@
         let table = `   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
                             <thead>
                                     <tr>
+                                        <th>Game Category</th>
                                         <th>Tournament</th>
                                         <th>Map</th>
                                         <th>Type</th>
                                         <th>Entry Price</th>
                                         <th>Start date</th>
                                         <th>Pool Price</th>
-                                        <th>Tournament Image</th>
-                                        <th>Edit or Remove</th>   
+                                        <th>Remove</th>   
                                         
                                            
                                     </tr>
@@ -190,15 +224,14 @@
 
                                     <tr class="table__row">
 
+                                        <td>${item.categoryname}</td>
                                         <td>${item.tournamentname}</td>
                                         <td>${item.map}</td>
                                         <td>${item.type}</td>
                                         <td>${item.entryprice}</td>
                                         <td>${item.startdate}</td>
                                         <td>${item.poolprice}</td>
-                                        <td>${item.tournamentimage}</td>
-                                        <td><input type="button" value="Edit" class="btn btn-info"> OR 
-                                        <input type="button" value="Delete" class="btn btn-danger"></td>
+                                        <td><a href="/add-tournament/removeteam"><button value="${item.id}" class="btn btn-danger">Delete</a></td>
                                         
                                     </tr>
                                 </tbody>`
@@ -209,9 +242,38 @@
 
 
     }
+</script>
 
+<script>
+    $.getJSON("/add-tournament/categorydetail", data => {
+        project = data;
+        console.log(data);
+        fillDropDown("categoryname", data, "Choose Game Category", 0);
+    });
 
-
+    function fillDropDown(id, data, label, selectedid = 0) {
+        $(`#${id}`).empty();
+        $(`#${id}`).append(
+            $("<option>")
+                .val("null")
+                .text(label)
+        );
+        $.each(data, (i, item) => {
+            if (item.id == selectedid) {
+                $(`#${id}`).append(
+                    $("<option selected>")
+                        .val(item.categoryname)
+                        .text(item.categoryname)
+                );
+            } else {
+                $(`#${id}`).append(
+                    $("<option>")
+                        .val(item.categoryname)
+                        .text(item.categoryname)
+                );
+            }
+        });
+    };
 </script>
 
 </html>

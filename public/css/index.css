@@ -16,3 +16,8 @@
   .section-contact h5 {
     margin-bottom: 30px;
   }
+
+
+  .card-dark {
+    background: #343434;
+  }

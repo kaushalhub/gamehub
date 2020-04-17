@@ -26,6 +26,26 @@ router.get("/", (req, res) => {
     });
 });
 
+
+router.post("/categoryinsert",  (req, res) => {
+  let body = req.body;
+  body['adminid'] = req.session.adminid;
+  pool.query(`insert into category set ?`, body, (err, result) => {
+      if (err) throw err;
+      else res.redirect("/add-tournament");
+  });
+});
+
+// show all category
+router.get("/categorydetail", (req, res) => {
+  const { adminid } = req.session.adminid
+  var query = `select * from category where adminid = ${req.session.adminid}`;
+  pool.query(query, (err, result) => {
+    if (err) throw err;
+    else res.json(result);
+  });
+});
+
 router.get("/alldata", (req, res) => {
   const { adminid } = req.session.adminid
   var query = `select * from tournament where adminid = ${req.session.adminid}`;
@@ -34,5 +54,17 @@ router.get("/alldata", (req, res) => {
     else res.json(result);
   }); 
 });
+
+
+// remove tournament
+router.get('/removeteam', (req, res) => {
+  const { id } = req.query
+  pool.query(`delete from tournament where id = ${id}`, (err, result) => {
+
+       if (err) throw err;
+       else res.redirect('/add-tournament');
+     
+  })
+})
 
 module.exports = router;
