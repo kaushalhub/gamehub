@@ -15,6 +15,7 @@ var admin_login = require('./routes/admin-login');
 var admin_dashboard = require('./routes/admin-dashboard');
 var add_tournament = require('./routes/add-tournament');
 var tournament_detail = require('./routes/tournament-detail');
+var poolprice = require('./routes/poolprice');
 
 
 var app = express();
@@ -45,8 +46,8 @@ app.use('/signup', signup);
 app.use('/admin-login', admin_login);
 app.use('/admin-dashboard', admin_dashboard);
 app.use('/add-tournament', add_tournament);
-app.use('/tournament-detail', tournament_detail)
-
+app.use('/tournament-detail', tournament_detail);
+app.use('/poolprice', poolprice);
 
 // Access Control
 app.use(function(req, res, next) {

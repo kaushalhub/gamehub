@@ -46,36 +46,9 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Add Tournament</h1>
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal" style="margin-left: 59%;"><i class="fas fa-plus fa-sm text-white-50"></i> Add Tournament</a>
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal1"><i class="fas fa-plus fa-sm text-white-50"></i> Add Game Category</a>
-               <!-- add game caterory -->
-
-               <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Add Game Category</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form action="/add-tournament/categoryinsert" method="post">
-                        <div class="form-group">
-                          <label for="recipient-name" class="col-form-label">Catergory Name</label>
-                          <input type="text" name="categoryname" class="form-control" id="recipient-name">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                      
-                      <input type="submit" class="btn btn-primary">
-                    </div>
-                    </form>
-                  </div>
-                </div>
-              </div>  
-               
-               
+                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal" style="margin-left: 59%;"><i class="fas fa-plus fa-sm text-white-50"></i> Add Pool Price Breakup</a>
+ 
+                           
                 <!-- add game tournament -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -87,45 +60,62 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form action="/add-tournament/insert" method="post">
+                          <form action="/poolprice/insert" method="post">
                             <div class="form-group">
                               <label for="recipient-name" class="col-form-label">Choose Game Category</label>
                               <select area-required="true" name="categoryname" id="categoryname" class="form-control"></select>
                             </div>
                             <div class="form-group">
-                              <label for="recipient-name" class="col-form-label">Tournament Name</label>
-                              <input type="text" name="tournamentname" class="form-control" id="recipient-name">
+                              <label for="recipient-name" class="col-form-label">1st Price</label>
+                              <input type="text" name="one" class="form-control" id="recipient-name">
                             </div>
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Map</label>
-                                <input type="text" name="map" class="form-control" id="recipient-name">
+                                <label for="recipient-name" class="col-form-label">2nd Price</label>
+                                <input type="text" name="two" class="form-control" id="recipient-name">
                               </div>
                               <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Type</label>
-                                <input type="text" name="type" class="form-control" id="recipient-name">
+                                <label for="recipient-name" class="col-form-label">3rd Price</label>
+                                <input type="text" name="three" class="form-control" id="recipient-name">
                               </div>
                               <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Entry Price</label>
-                                <input type="text" name="entryprice" class="form-control" id="recipient-name">
+                                <label for="recipient-name" class="col-form-label">4th Price</label>
+                                <input type="text" name="four" class="form-control" id="recipient-name">
                               </div>
                               <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Start Date</label>
-                                <input type="text" name="startdate" class="form-control" id="recipient-name">
+                                <label for="recipient-name" class="col-form-label">5th Price</label>
+                                <input type="text" name="five" class="form-control" id="recipient-name">
                               </div>
                               <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Pool Price</label>
-                                <input type="text" name="poolprice" class="form-control" id="recipient-name">
+                                <label for="recipient-name" class="col-form-label">6th Price</label>
+                                <input type="text" name="six" class="form-control" id="recipient-name">
                               </div>
 
                               <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Tournament Image</label>
-                                <input type="file" name="tournamentimage" class="form-control" id="recipient-name">
+                                <label for="recipient-name" class="col-form-label">7th Price</label>
+                                <input type="text" name="seven" class="form-control" id="recipient-name">
                               </div>
+
+                              <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">8th Price</label>
+                                <input type="text" name="eight" class="form-control" id="recipient-name">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">9th Price</label>
+                                <input type="text" name="nine" class="form-control" id="recipient-name">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">10th Price</label>
+                                <input type="text" name="ten" class="form-control" id="recipient-name">
+                              </div>
+
                           
                         </div>
                         <div class="modal-footer">
                           
                           <input type="submit" class="btn btn-primary">
+                          <div class='pm-button'><a href='https://www.payumoney.com/paybypayumoney/#/10159880CB0AEE547F5BED69155E6CAF'><img src='https://www.payumoney.com/media/images/payby_payumoney/new_buttons/11.png' /></a></div> 
                         </div>
                         </form>
                       </div>
@@ -245,7 +235,7 @@
 </script>
 
 <script>
-    $.getJSON("/add-tournament/categorydetail", data => {
+    $.getJSON("/poolprice/categorydetail", data => {
         project = data;
         console.log(data);
         fillDropDown("categoryname", data, "Choose Game Category", 0);
@@ -262,14 +252,14 @@
             if (item.id == selectedid) {
                 $(`#${id}`).append(
                     $("<option selected>")
-                        .val(item.categoryname)
-                        .text(item.categoryname)
+                        .val(item.id)
+                        .text(item.id)
                 );
             } else {
                 $(`#${id}`).append(
                     $("<option>")
-                        .val(item.categoryname)
-                        .text(item.categoryname)
+                        .val(item.id)
+                        .text(item.id)
                 );
             }
         });

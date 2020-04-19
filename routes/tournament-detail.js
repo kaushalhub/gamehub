@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
     })
   }
   else {
-    res.render('login', { login: false });
+    res.render('admin-login', { login: false });
   }
 });
 
