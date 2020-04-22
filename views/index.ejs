@@ -30,12 +30,12 @@
                   <ul class="right hide-on-med-and-down">
                       <li><a href="/tournament">Tournament</a></li>
 					  <% if(login == true)  { %>
-						
+
 						<li><a href="/account">My Account</a></li>
 						<li><a href="/signup/logout">Logout</a></li>
 						<a class="waves-effect waves-light btn dropdown-trigger btn red darken-4">Hi <%= result[0][0].name %></a>
 						<!-- dropdown -->
-						
+
 						<% } else { %>
 							<a class="waves-effect waves-light btn modal-trigger red darken-4" href="/login">Login/Signup</a>
 						<% } %>
@@ -63,10 +63,10 @@
 
 				<a class="waves-effect waves-light btn modal-trigger red darken-4" href="/login">Login/Signup</a>
 					<% } %>
-				
+
 		</div>
 	</div>
-	
+
 	<% if(login == true)  { %>
 			<!-- card tournament area -->
 		<div class="container">
@@ -78,7 +78,7 @@
 					<div class="card-image" >
 					  <img src="image/pubg.jpg">
 					  <span class="card-title"><%= result[1][i]. tournamentname %></span>
-					  <a href="/tournament-detail" class="btn-floating pluse halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+					  <a href="/tournament-detail?id=<%= result[1][i].id %>" class="btn-floating pluse halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
 					</div>
 					<div class="card-content" style="height: 24vh;">
 						<i class="material-icons">calendar_today</i><p class="detail"><%= result[1][i]. startdate %></p><br>
@@ -88,7 +88,7 @@
 					</div>
 				  </div>
 				</div>
-				<% } %>	
+				<% } %>
 		</div>
 		<% }  else { %>
 
@@ -103,7 +103,7 @@
 				<a class="carousel-item" href="#five!"><img src="https://cdn.gamingmonk.com/home-page/games/8-ball-pool.png"></a>
 				<a class="carousel-item" href="#four!"><img src="https://cdn.gamingmonk.com/home-page/games/fortnite.png"></a>
 				<a class="carousel-item" href="#five!"><img src="https://cdn.gamingmonk.com/home-page/games/pubg-pc.png"></a>
-				<a class="carousel-item" href="#five!"><img src="https://cdn.gamingmonk.com/home-page/games/fifa-20.png"></a>		
+				<a class="carousel-item" href="#five!"><img src="https://cdn.gamingmonk.com/home-page/games/fifa-20.png"></a>
 			</div>
 	</section>
 	<!-- feature part -->
@@ -124,7 +124,7 @@
 
 
 		<div class="row full-width imgrightsec">
-			
+
 			<div class="col s6 imgrightsecinnertext">
 				<h3>WATCH VIDEO</h3>
 				<p>Watch your favourite streamers and interact with them. <br>Get a chance to win amazing cash prizes as well.</p>

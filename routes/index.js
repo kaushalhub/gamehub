@@ -7,13 +7,11 @@ let table = "index";
 
 router.get("/", (req, res) => {
   if (req.session.id) {
-
-    var query = `select name,number from signup where id = "${req.session.id}"; `
+    var query = `select name,number from signup where id = "${req.session.id}";`
     var query1 = `select * from tournament`
     pool.query(query + query1, (err, result) => {
       if (err) throw err;
       else res.render(`index`, { login: true , result : result});
-   
     });
   }
   else {
@@ -22,6 +20,3 @@ router.get("/", (req, res) => {
 });
 
 module.exports = router;
-
-
-
