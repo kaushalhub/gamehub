@@ -26,7 +26,7 @@ router.post("/insert", (req, res) => {
       else if (result[0]) {
         req.session.id = result[0].id;
   
-        req.flash('success', 'Welcome To Jetsave');
+        req.flash('success', 'Welcome To GameingHub');
         res.redirect("/");
       } else {
   

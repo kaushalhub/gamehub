@@ -8,6 +8,13 @@
   </div>
   <form action="/signup/all" method="post">
   <div class="login-form">
+
+
+
+    <% if (messages.error) { %>
+      <center> <div class="alert alert-danger" role="alert" style="color: red;"><h4><%- messages.error %></h4></div> </center>
+     <% } %>
+      <br>
     <h3>Mobile Number:</h3>
     <input type="text" placeholder="Mobile Number" name="number" /><br>
     <h3>Password:</h3>

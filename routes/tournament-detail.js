@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   if (req.session.id) {
     global.id = req.query.id
     var query = `select name,number from signup where id = "${req.session.id}"; `
-    var query1 = `select * from tournament where id = "${id}"`
+    var query1 = `select * from tournament where id = "${id}"`;
     pool.query(query + query1, (err, result) => {
       if (err) throw err;
       else res.render(`tournament-detail`, { login: true , result : result});

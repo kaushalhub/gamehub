@@ -17,7 +17,13 @@
 </head>
 
     <style>
-
+                .profile-image {
+                    border-radius: 50px;
+                    height: 100px;
+                    width: 100px;
+                    text-align: center;
+                    margin-left: 45%;
+                }
     </style>
 
 <body>
@@ -37,7 +43,7 @@
                             <li><a href="/account" class="active">My Account</a></li>
                             <li><a href="/signup/logout">Logout</a></li>
                             <a class="waves-effect waves-light btn dropdown-trigger btn red darken-4">Hi
-                                <%= result[0].name %></a>
+                                <%= result[0][0].name %></a>
                             <!-- dropdown -->
 
                             <% } else { %>
@@ -58,11 +64,48 @@
             <div class="card" style="background-color: black;">
                 <center><h5>My Profile</h5></center>
                 <div class="card-body">
-                    <img src="image/pubgdetail.jpg" style="border-radius: 50px;">
-                </div>       
+                    <img class="profile-image" src="image/pubgdetail.jpg" style="border-radius: 50px;">
+                </div>    
+                <div class="list">
+                    <i class="large material-icons" style="color: white;">add</i>
+                    <i class="large material-icons" style="color: white;">add</i>
+                    <i class="large material-icons" style="color: white;">add</i>
+                </div>   
             </div>
         </div>
     </div>
+
+    
+    <div class="container">
+        <h5>My Tournament</h5>
+        <% if(result[1].length) { %>
+        <div class="row">
+            <% for(i=0;i<result[1].length;i++){ %>
+            <div class="col s12 m4">
+              <div class="card z-depth-5">
+                <div class="card-image" >
+                  <img src="image/pubg.jpg">
+                  <span class="card-title"><%= result[1][i]. tournamentname %></span>
+                  <a href="/tournament-detail?id=<%= result[1][i].id %>" class="btn-floating pluse halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content" style="height: 24vh;">
+                    <i class="material-icons">calendar_today</i><p class="detail"><%= result[1][i]. startdate %></p><br>
+                    <i class="material-icons">map</i><P class="detail"><%= result[1][i]. map %></P>
+                    <i class="material-icons price">emoji_events</i><p class="detail-right"><%= result[1][i]. poolprice %></p><br><br><br>
+                    <i class="material-icons price">group</i><p class="detail-right"><%= result[1][i]. type %></p>
+                </div>
+              </div>
+            </div>
+            <% } %>
+            <% } %>
+    </div>
+    
+
+    <% if(!result[1].length) { %>
+
+        <h2 class="text-center" style="color: white;">No Tournament Yet</h2>
+        <% } %>
+
     <!-- footer -->
     <footer class="page-footer grey darken-4">
         <div class="container">
