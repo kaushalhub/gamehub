@@ -13,6 +13,8 @@ const pool = mysql.createPool({
   port: "3306",
   connectionLimit: 100,
   multipleStatements: true
+
+  // paykun password: eFapbwp*Mx7mLf9
 });
 
 module.exports = pool;
