@@ -26,8 +26,8 @@ router.post("/booking",  (req, res) => {
   body['tournamentid'] = global.id
   pool.query(`insert into booking set ?`, body, (err, result) => {
       if (err) throw err;
-      else res.redirect("/add-tournament");
+      else res.redirect("https://www.payumoney.com/paybypayumoney/#/A6B53BFE6216CA68DEB09812C751784A");
   });
-});
+}); 
 
 module.exports = router;
