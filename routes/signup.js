@@ -18,6 +18,35 @@ router.post("/insert", (req, res) => {
   });
 
 
+  //   router.post("/insert",(req, res) => {
+  //     let body = req.body;
+  //     pool.query("SELECT COUNT(*) AS cnt FROM signup WHERE number = ? " , 
+  // body.number , function(err , data){
+  //    if(err){
+  //        console.log(err);
+  //    }   
+  //    else{
+  //        if(data[0].cnt > 0){  
+  //              // Already exist 
+  //              req.flash('error', 'Email Already Exist');
+  //         res.redirect("/signup");
+  //        }else{
+  //            pool.query(`INSERT INTO signup set ?` , body, (err, result) =>{
+  //                if(err){
+  //                    // retunn error
+  //                    console.log(err);
+  //                }else{
+  //                    // return success , user will insert 
+  //                    req.flash('success', 'Account Created Successfully');
+  //                    res.redirect("/signup")
+  //                }
+  //            })                  
+  //        }
+  //    }
+  // })
+  //   })
+
+
 // check login 
   router.post("/all", (req, res) => {
     const { username, password } = req.body;

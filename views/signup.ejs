@@ -1,10 +1,17 @@
-<!-- <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 <link rel="shortcut icon" type="image/png" href="/image/fav.png" />
 <link rel="stylesheet" href="css/login.css">
 
 <div class="login">
   <div class="login-header">
     <h1>Signup</h1>
+    <% if (messages.error) { %>
+        <center> <div class="alert alert-danger" role="alert" style="color: red;"><h1><%- messages.error %></h1></div> </center>
+       <% } %>
+
+       <% if (messages.success) { %>
+        <center> <div class="alert alert-danger" role="alert" style="color: red;"><h4><%- messages.success %></h4></div> </center>
+       <% } %>   
   </div>
   <form action="/signup/insert" method="post">
   <div class="login-form">
@@ -27,44 +34,5 @@
     
   </div>
   </form>
-</div> -->
+</div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Validation</title>
-    <link rel="stylesheet" href="css/login.css">
-</head>
-<body>
-    <div class="container">
-        <form class="form" id="form" action="/signup/insert" method="post">
-            <h2>Register With Us</h2>
-            <div class="form-control">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter Username" required>
-                <small>Error Message</small>
-            </div>
-            <div class="form-control">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Enter Username" required>
-                <small>Error Message</small>
-            </div>
-            <div class="form-control">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter Username" required>
-                <small>Error Message</small>
-            </div>
-            <div class="form-control">
-                <label for="password2">Confirm Password</label>
-                <input type="password" id="password2" name="password" placeholder="Enter Username" required>
-                <small>Error Message</small>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
-    <script src="css/login.js"></script>
-</body>
-</html>
