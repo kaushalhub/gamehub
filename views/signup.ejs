@@ -1,38 +1,16 @@
-<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
-<link rel="shortcut icon" type="image/png" href="/image/fav.png" />
 <link rel="stylesheet" href="css/login.css">
+<form class="login" action="/signup/insert" method="post">
+  <h1>Signup With Account</h1>
+  <% if (messages.error) { %>
+    <center> <div class="alert alert-danger" role="alert" style="color: red;"><h1><%- messages.error %></h1></div> </center>
+   <% } %>  
+  <input type="text" placeholder="Enter Name" name="name" required/>
+  <input type="number" placeholder="Mobile Number" name="number" required/>
+  <input type="password" placeholder="Password" name="password" required/>
+  <input type="number" placeholder="Enter Paytm Mobile Number" name="paytmnumber" required/>
+  <input type="text" placeholder="Enter Game User Name" name="gameid" required/>
 
-<div class="login">
-  <div class="login-header">
-    <h1>Signup</h1>
-    <% if (messages.error) { %>
-        <center> <div class="alert alert-danger" role="alert" style="color: red;"><h1><%- messages.error %></h1></div> </center>
-       <% } %>
+  <button type="submit">Signup</button>
+</form>
 
-       <% if (messages.success) { %>
-        <center> <div class="alert alert-danger" role="alert" style="color: red;"><h4><%- messages.success %></h4></div> </center>
-       <% } %>   
-  </div>
-  <form action="/signup/insert" method="post">
-  <div class="login-form">
-    <h3>Name:</h3>
-    <input type="text" placeholder="Enter Name" name="name" /><br>
-    <h3>Mobile Number:</h3>
-    <input type="text" placeholder="Mobile Number" name="number" /><br>
-    <h3>Password:</h3>
-    <input type="password" placeholder="Password" name="password"/>
-    <br>
-    <h3>Paytm Mobile Number:</h3>
-    <input type="number" placeholder="Enter Paytm Mobile Number" name="paytmnumber"/>
-    <br>
-    <h3>Game User Name:</h3>
-    <input type="text" placeholder="Enter Game User Name" name="gameid"/>
-    
-    <button type="submit" class="login-button"/>Signup</button>
-    <br>
-    <a class="sign-up" href="/login">Login</a>
-    
-  </div>
-  </form>
-</div>
 

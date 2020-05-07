@@ -9,7 +9,8 @@ router.get("/", (req, res) => {
     global.id = req.query.id
     var query = `select name,number from signup where id = "${req.session.id}"; `
     var query1 = `select * from tournament where id = "${id}"`;
-    pool.query(query + query1, (err, result) => {
+    var query2 = `select * from booking`;
+    pool.query(query + query1, + query2 , (err, result) => {
       if (err) throw err;
       else res.render(`tournament-detail`, { login: true , result : result});
 
@@ -24,10 +25,21 @@ router.post("/booking",  (req, res) => {
   let body = req.body;
   body['userid'] = req.session.id;
   body['tournamentid'] = global.id
-  pool.query(`insert into booking set ?`, body, (err, result) => {
-      if (err) throw err;
-      else res.redirect("https://www.payumoney.com/paybypayumoney/#/A6B53BFE6216CA68DEB09812C751784A");
-  });
-}); 
 
+  var check =  pool.query(`select * from booking where userid = ${req.session.id} and tournamentid = ${id}`)
+  console.log(check)
+
+  if (!check) {
+    pool.query(`insert into booking set ?`, body, (err, result) => {
+      if (err) throw err;
+      else res.redirect("/account");
+
+  });
+  } else  {
+    req.flash('success', 'You Have Already Book This Tournament');
+    res.redirect("/account");
+  }
+  
+    });
+  
 module.exports = router;

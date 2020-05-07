@@ -75,7 +75,9 @@
         </div>
     </div>
 
-    
+    <% if (messages.error) { %>
+        <center> <div class="alert alert-danger error" role="alert"><%- messages.success %></div> </center>
+           <% } %>
     <div class="container">
         <h5>My Tournament</h5>
         <% if(result[1].length) { %>
