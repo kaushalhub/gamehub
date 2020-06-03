@@ -6,40 +6,31 @@ let table = "tournament-detail";
 
 router.get("/", (req, res) => {
   if (req.session.id) {
-    global.id = req.query.id
-    var query = `select name,number from signup where id = "${req.session.id}"; `
+    global.id = req.query.id;
+    var query = `select name,number from signup where id = "${req.session.id}"; `;
     var query1 = `select * from tournament where id = "${id}"`;
     var query2 = `select * from booking`;
-    pool.query(query + query1, + query2 , (err, result) => {
+    pool.query(query + query1, +query2, (err, result) => {
       if (err) throw err;
-      else res.render(`tournament-detail`, { login: true , result : result});
-
-    })
-  }
-  else {
-    res.render('admin-login', { login: false });
+      else res.render(`tournament-detail`, { login: true, result: result });
+    });
+  } else {
+    res.render("admin-login", { login: false });
   }
 });
 
-router.post("/booking",  (req, res) => {
+router.post("/booking", (req, res) => {
   let body = req.body;
-  body['userid'] = req.session.id;
-  body['tournamentid'] = global.id
+  body["userid"] = req.session.id;
+  body["tournamentid"] = global.id;
 
-  var check =  pool.query(`select * from booking where userid = ${req.session.id} and tournamentid = ${id}`)
-  console.log(check)
+        pool.query(`insert into booking set ?` ,body, function(err , insert){
+               if(err){
+                   throw err;
+               }else{
+                 res.redirect("/account");
+               }
+           })                  
+});
 
-  if (!check) {
-    pool.query(`insert into booking set ?`, body, (err, result) => {
-      if (err) throw err;
-      else res.redirect("/account");
-
-  });
-  } else  {
-    req.flash('success', 'You Have Already Book This Tournament');
-    res.redirect("/account");
-  }
-  
-    });
-  
 module.exports = router;

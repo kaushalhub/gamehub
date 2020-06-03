@@ -51,8 +51,8 @@ body.number , function(err , data){
            })                  
        }
    }
-})
-})
+});
+});
 
 // check login 
   router.post("/all", (req, res) => {
